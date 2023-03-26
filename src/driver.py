@@ -15,6 +15,7 @@ ANGULAR_SPEED_MULT = 5
 
 class Driver:
     def __init__(self):
+        # Optionally create a ROS message type as a wrapper for the motor manager's MotorInfo data. This message can be published easily.
         #self._pub = rospy.Publisher("/chariot/status", ChariotStatus, queue_size=1)
         
         rospy.Subscriber("/cmd_vel", Twist, self.vel_callback)
@@ -29,6 +30,7 @@ class Driver:
         self._cmd_vel = data
 
     def publish_status(self):
+        # Publish MotorInfo status messages
         pass
 
     def process_vel_cmd(self):
